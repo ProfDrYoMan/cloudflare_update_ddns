@@ -4,13 +4,13 @@ Based on https://github.com/K0p1-Git/cloudflare-ddns-updater.
 
 ## Functionality
 
-Checks if local IPv4 address or IPv6 prefix did change and update DNS records on cloudflare.
+Checks if local IPv4 address or IPv6 prefix did change and updates DNS records on cloudflare.
 
 To avoid API calls status is stored in two local files.
 
 Every 'run_minute' of the hour stored files are ignored to ensure correct records in case of update failure.
 
-Also if there is no change, nothing is updated in records.
+Nothing is updated in records if there is no change.
 
 ## Installation
 
@@ -58,6 +58,6 @@ REGEX_IPV6="([0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}
 ### Example /56
 
 ```
-`REGEX_IPV6="([0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}):([0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4})"`
+REGEX_IPV6="([0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}):([0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4})"
                                                                 ^^^
 ```

@@ -11,7 +11,7 @@
 #
 # IPv6 prefix is /64.
 # 
-# All IPv6 addresses in the cloudflare record need to be uncompressed (no ::).
+# All IPv6 addresses in the cloudflare record need to be uncompressed (no :: inside address).
 
 # Config
 auth_email="email@address.com"                        # Cloudflare login email
@@ -19,7 +19,7 @@ auth_key="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"   # Zone.DNS.Edit API token
 zone_identifier="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"    # Zone identifier
 current_ipv4_file="/tmp/current_ipv4"                 # File to store current IPv4
 current_ipv6_prefix_file="/tmp/current_ipv6_prefix"   # File to store current IPv6 prefix
-run_minute="35"                                       # At which minute to forced run the check each hour
+run_minute="35"                                       # At which minute to forced run check each hour
 
 # Don't touch
 REGEX_IPV4="([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)"
