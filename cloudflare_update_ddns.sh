@@ -51,6 +51,12 @@ if [[ ( $(date +"%M") == $run_minute ) || ( ! ( -f $current_ipv4_file && ( $CURR
     record_identifier=$(echo $records | jq -r .result[$record_number].id)
     record_name=$(echo $records | jq -r .result[$record_number].name)
     record_content=$(echo $records | jq -r .result[$record_number].content)
+    record_comment=$(echo $records | jq -r .result[$record_number].comment)
+
+# Continue if comment is not "auto-update"
+    if [[ "auto-update" != $record_comment ]]; then
+      continue
+    fi
 
 # Continue if no change
     if [[ $CURRENT_IP == $record_content ]]; then
@@ -100,12 +106,18 @@ if [[ ( $(date +"%M") == $run_minute ) || ( ! ( -f $current_ipv6_prefix_file && 
     record_identifier=$(echo $records | jq -r .result[$record_number].id)
     record_name=$(echo $records | jq -r .result[$record_number].name)
     record_content=$(echo $records | jq -r .result[$record_number].content)
+    record_comment=$(echo $records | jq -r .result[$record_number].comment)
 
 # Should not happen
     if [[ $record_content =~ $REGEX_IPV6 ]]; then
       record_prefix=${BASH_REMATCH[1]}
     else
       logger -s "DDNS Updater: Could not extract prefix."
+      continue
+    fi
+
+# Continue if comment is not "auto-update"
+    if [[ "auto-update" != $record_comment ]]; then
       continue
     fi
 
