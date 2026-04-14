@@ -38,6 +38,8 @@ run_minute="35"                                       # At which minute to force
 
 All IPv6 addresses in cloudflare records need to be uncompressed (no :: inside address).
 
+Each record that should be auto-updated needs the text "auto-update" in the record attribute. All other records will be irgnored.
+
 ## Run Via cron Every Minute
 
 ```
