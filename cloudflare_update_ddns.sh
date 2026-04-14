@@ -83,7 +83,7 @@ else
   exit 2
 fi
 
-# Only if there is change or we ar in run_minute
+# Only if there is change or we are in run_minute
 if [[ ( $(date +"%M") == $run_minute ) || ( ! ( -f $current_ipv6_prefix_file && ( $CURRENT_IP_PREFIX == $(< $current_ipv6_prefix_file) ) ) ) ]]; then
   echo $CURRENT_IP_PREFIX > $current_ipv6_prefix_file
 
